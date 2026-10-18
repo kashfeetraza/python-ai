@@ -153,3 +153,17 @@ Through this project, I practised collecting user input, storing values in varia
 ## Course
 
 Python for AI — Module 1: Python Basics for GenAI and Agentic AI.
+
+
+
+## Task 1.8: Business Helper Bot Design
+
+Business: City Care Clinic
+
+| Intent | User wants | Keywords | Reply |
+|---|---|---|---|
+| Hours | Know opening times | hours, open, timing | Our clinic timings are 9 AM to 8 PM. |
+| Location | Find the clinic | location, address, where | Check our official page for the address. |
+| Appointment | Book a visit | appointment, book, booking | Contact reception to book an appointment. |
+| Services | Know available services | services, treatment, doctor | We provide general consultations and basic healthcare services. |
+| Fees | Know consultation cost | fee, fees, price, cost | Contact reception for current fees. |

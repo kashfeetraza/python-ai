@@ -1,98 +1,84 @@
 
-"""
-Lesson 1.8: Rule-Based Chatbot
-Business: Sweet Crumbs Bakery
+"""Task 1.8: Build a rule-based business helper chatbot."""
 
-A beginner-friendly chatbot that answers common customer questions.
-"""
-
-BOT = "Sweet Crumbs Bot"
-
-print(f"{BOT}: Welcome! I can help with prices, hours, location and orders.")
-print(f"{BOT}: Type 'bye' to end the chat.")
-
-# Ask the name once so the bot remembers it throughout the conversation.
-name = input(f"{BOT}: What is your name? ").strip().title()
-
-if name == "":
-    name = "Friend"
-
-print(f"{BOT}: Nice to meet you, {name}!")
-
+business_name = "City Care Clinic"
 message_count = 0
 unanswered_count = 0
 complaint_count = 0
 
+# Why: Store business replies in one place so they are easy to update.
+intents = {
+    "hours": {
+        "keywords": ["hours", "open", "timing"],
+        "reply": "Our clinic timings are 9 AM to 8 PM."
+    },
+    "location": {
+        "keywords": ["location", "address", "where"],
+        "reply": "Please check our official page for the clinic address."
+    },
+    "appointment": {
+        "keywords": ["appointment", "book", "booking"],
+        "reply": "Please contact our reception to book an appointment."
+    },
+    "services": {
+        "keywords": ["services", "treatment", "doctor"],
+        "reply": "We provide general consultations and basic healthcare services."
+    },
+    "fees": {
+        "keywords": ["fee", "fees", "price", "cost"],
+        "reply": "Please contact reception for the latest consultation fees."
+    }
+}
+
+print(f"Welcome to {business_name}!")
+user_name = input("What is your name? ").strip().title()
+
+print(f"Hello, {user_name}! How can I help you?")
+print("Ask about hours, location, appointments, services, or fees.")
+print("Type 'bye' to exit.")
+
 while True:
-    message = input(f"{name}: ").strip().lower()
+    message = input("\nYou: ").strip().lower()
+
+    if message == "bye":
+        break
+
     message_count += 1
 
-    # Why: an exit check prevents the chatbot from running forever.
-    if message == "bye" or message == "exit":
-        print(f"{BOT}: Goodbye, {name}! Thanks for visiting.")
-        break
-
-    elif message == "":
-        print(f"{BOT}: Please type a question.")
-
-    # Why: handle complaints before orders so unhappy customers get priority.
-    elif (
-        "refund" in message
-        or "complaint" in message
-        or "late" in message
-    ):
+    # Why: Handle complaints before normal questions.
+    if "complaint" in message or "problem" in message:
         complaint_count += 1
-        print(
-            f"{BOT}: Sorry about that, {name}. "
-            "A manager will contact you within 1 hour."
-        )
+        print("Bot: I'm sorry about that. Please contact our reception for help.")
 
     elif "agent" in message or "human" in message:
-        print(f"{BOT}: Connecting you to a human...")
+        print("Bot: Connecting you to a human...")
         break
 
-    elif "hour" in message or "open" in message or "time" in message:
-        print(f"{BOT}: We are open every day, from 9 AM to 10 PM.")
-
-    elif "price" in message or "cost" in message or "how much" in message:
-        print(
-            f"{BOT}: Cakes start at 1,500 PKR. "
-            "Cupcakes cost 250 PKR each."
-        )
-
-    elif "where" in message or "location" in message or "address" in message:
-        print(f"{BOT}: Our example business is on Main Boulevard, Lahore.")
-
-    elif "order" in message or "delivery" in message:
-        print(
-            f"{BOT}: You can place an order through our business WhatsApp. "
-            "Delivery is free on orders over 3,000 PKR."
-        )
-
-    elif (
-        message in ("hi", "hello", "hey")
-        or message.startswith("salam")
-    ):
-        print(f"{BOT}: Hello, {name}! How can I help you?")
+    elif message == "hi" or message.startswith("hi "):
+        print(f"Bot: Hello, {user_name}! How can I help?")
 
     else:
-        unanswered_count += 1
+        answered = False
 
-        # Why: unanswered questions help us discover missing chatbot rules.
-        # Why: this prompt shows how an LLM could answer in Module 2.
-        prompt = (
-            "You are a friendly assistant for Sweet Crumbs Bakery. "
-            f"Answer the customer in 2 short sentences. Question: {message}"
-        )
+        for intent in intents.values():
+            for keyword in intent["keywords"]:
+                if keyword in message:
+                    print(f"Bot: {intent['reply']}")
+                    answered = True
+                    break
 
-        print(f"{BOT}: I don't know that answer yet.")
-        print(f"{BOT}: Example AI prompt: {prompt}")
+            if answered:
+                break
 
-print("\n" + "=" * 40)
-print("CHAT SUMMARY")
-print("=" * 40)
-print(f"Customer: {name}")
+        if not answered:
+            unanswered_count += 1
+            print("Bot: I don't know that answer yet.")
+            print("A future AI prompt could be:")
+            print(f"Answer this customer question for {business_name}: {message}")
+
+print("\n--- Chat Summary ---")
+print(f"Thank you, {user_name}!")
 print(f"Messages received: {message_count}")
 print(f"Unanswered questions: {unanswered_count}")
 print(f"Complaints received: {complaint_count}")
-print("Thank you for testing the chatbot!")
+print("Goodbye!")
