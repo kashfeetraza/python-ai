@@ -167,3 +167,55 @@ Business: City Care Clinic
 | Appointment | Book a visit | appointment, book, booking | Contact reception to book an appointment. |
 | Services | Know available services | services, treatment, doctor | We provide general consultations and basic healthcare services. |
 | Fees | Know consultation cost | fee, fees, price, cost | Contact reception for current fees. |
+
+
+
+# Sweet Crumbs AI Front Desk
+
+A beginner-friendly Python front desk for a local bakery: it answers common questions with rules, calculates menu quotes, prepares AI-ready prompts, keeps privacy-related questions on a local-model route, and prints a session report.
+
+## Requirements
+
+- Python 3.13 or newer
+- `uv`
+- Optional for the AI tests: Ollama and a locally installed model such as `qwen3.5:2b`
+
+## Run
+
+From the project root:
+
+```powershell
+uv run code/project_m1_front_desk.py
+```
+
+This script uses only Python Module 1 concepts and the Python standard library. It does not automatically send prompts to Ollama; copy the printed prompt into your local model during the AI test.
+
+## Project files
+
+- `code/project_m1_front_desk.py` — working front desk script
+- `docs/project-m1-part2-design.md` — intents, business rules, and rule test table
+- `docs/project-m1-part2-results.md` — AI test record to complete with real Ollama answers
+- `docs/project-m1-part2-run.png` — add your own screenshot after running a full session
+
+## Screenshot
+
+After running a complete session, take a screenshot that includes a FAQ answer, a quote, an AI-ready prompt, and the final session report. Save it as `docs/project-m1-part2-run.png`.
+
+## Business value
+
+The bot can save staff time by answering repeat questions and calculating consistent quotes automatically, while keeping a record of customer questions so the owner can improve service.
+
+## Demo
+
+1. Introduce Sweet Crumbs and the repeated-question problem.
+2. Show an FAQ, a quote with a discount, and a fallback prompt.
+3. Explain the session report and why discount is applied before checking free delivery.
+4. Show the two real Ollama test results and discuss any hallucination or limitation.
+
+## Submission checklist
+
+- [ ] Run the script and complete the rule-test table honestly.
+- [ ] Paste two real Ollama answers and your judgement into `docs/project-m1-part2-results.md`.
+- [ ] Save a full-session screenshot as `docs/project-m1-part2-run.png`.
+- [ ] Practise explaining the code in your own words.
+- [ ] Commit with: `Module 1 Checkpoint 2 Project: AI Front Desk`
