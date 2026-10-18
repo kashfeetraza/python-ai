@@ -1,45 +1,25 @@
 
-"""
-Lesson 1.5: Variables and Data Types
-AI Model Profile Card and Cost Estimator
-"""
+"""Task 1.5: Create an AI model profile card with a cost estimate."""
 
-# AI model profile
-model_name: str = "qwen3.5:2b"
-context_window: int = 32768
-price_per_1k_tokens: float = 0.50  # Example price in PKR
-runs_locally: bool = True
-
-# Why: Clear variable names make the code easier to understand.
-# Why: Type hints help developers identify the expected data types.
+# Why: These variables describe the model and use all four required types.
+model_name = "llama3.2"
+context_window = 128000
+price_per_1k_tokens = 0.5
+runs_locally = True
 
 print("--- AI Model Profile Card ---")
+print(f"Model: {model_name} {type(model_name)}")
+print(f"Context window: {context_window} tokens {type(context_window)}")
+print(f"Price per 1K tokens: {price_per_1k_tokens} PKR {type(price_per_1k_tokens)}")
+print(f"Runs locally: {runs_locally} {type(runs_locally)}")
 
-print(f"Model name: {model_name} ({type(model_name).__name__})")
-print(f"Context window: {context_window} ({type(context_window).__name__})")
-print(
-    f"Price per 1K tokens: {price_per_1k_tokens} PKR "
-    f"({type(price_per_1k_tokens).__name__})"
-)
-print(f"Runs locally: {runs_locally} ({type(runs_locally).__name__})")
+# Why: int() converts the user's input into a number for cost calculation.
+tokens_per_chat = int(input("Tokens per chat: "))
 
-try:
-    # input() returns text, so convert it to int before calculations.
-    tokens_used = int(input("\nHow many tokens does one chat use? "))
-    chats_per_day = int(input("How many chats per day? "))
+estimated_cost = round(tokens_per_chat / 1000 * price_per_1k_tokens, 2)
+print(f"Estimated cost: {estimated_cost} PKR")
 
-    if tokens_used < 0 or chats_per_day < 0:
-        print("Please enter zero or a positive whole number.")
-    else:
-        # Calculate estimated cost.
-        cost_per_chat = (tokens_used / 1000) * price_per_1k_tokens
-        daily_cost = cost_per_chat * chats_per_day
-        monthly_cost = daily_cost * 30
-
-        print("\n--- Cost Estimate ---")
-        print(f"Cost per chat: {cost_per_chat:.2f} PKR")
-        print(f"Daily cost: {daily_cost:.2f} PKR")
-        print(f"Monthly cost (30 days): {monthly_cost:.2f} PKR")
-
-except ValueError:
-    print("Invalid input! Please enter whole numbers, such as 1200 or 50.")
+# Stretch: Estimate the monthly cost for 30 days.
+chats_per_day = int(input("Chats per day: "))
+monthly_cost = round(estimated_cost * chats_per_day * 30, 2)
+print(f"Estimated monthly cost: {monthly_cost} PKR")
