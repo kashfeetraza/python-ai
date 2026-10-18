@@ -1,61 +1,35 @@
 
-"""
-Lesson 1.7: Operators and Making Decisions
-Project: Smart Model Router
-"""
+"""Task 1.7: Choose an AI model based on the task type."""
 
-# Ask the user for the task type.
-task = input("Task (code / private / chat): ").strip().lower()
+task_type = input("Task type (code/private/chat): ").strip().lower()
+tokens = int(input("How many tokens? "))
 
-try:
-    tokens = int(input("Estimated tokens: "))
+# Why: Different tasks need different AI models.
+if task_type == "code":
+    model_name = "Claude (Cloud)"
+    price_per_1k_tokens = 0.8
 
-    # Example prices per 1,000 tokens, for practice only.
-    cloud_price = 0.50
-    price = cloud_price
+elif task_type == "private":
+    model_name = "llama3.2 (Local Ollama)"
+    price_per_1k_tokens = 0.0
 
-    # Why: private data should stay on the local model when privacy is required.
-    # Why: routing simple tasks to a cheaper model can help reduce API costs.
-    if task == "private":
-        model = "qwen3.5:2b (local, Ollama)"
-        price = 0.0
-    elif task == "code":
-        model = "Claude (cloud, coding)"
-        price = cloud_price
-    elif task == "chat":
-        model = "Small cloud model (general chat)"
-        price = cloud_price
-    else:
-        model = "Small cloud model (default)"
-        price = cloud_price
-        print("Unknown task type. Using the default model.")
+else:
+    model_name = "Gemini (Cloud)"
+    price_per_1k_tokens = 0.1
 
-    if tokens < 0:
-        print("Error: Tokens cannot be negative.")
-    else:
-        # Calculate estimated cost.
-        cost = (tokens / 1000) * price
+# Why: Local models avoid per-token API charges.
+estimated_cost = (tokens / 1000) * price_per_1k_tokens
 
-        # Warn about long requests.
-        if tokens > 4000:
-            warning = "Long request: consider shortening it."
-        else:
-            warning = "Length is fine."
+print(f"\nSelected model: {model_name}")
+print(f"Estimated cost: {estimated_cost:.2f} PKR")
 
-        # Stretch task: check the user's plan.
-        paid_user = input("Is this a paid user? (yes/no): ").strip().lower()
+if tokens > 4000:
+    print("Warning: This request uses many tokens.")
+else:
+    print("Length is fine.")
 
-        if paid_user == "no" and tokens > 2000:
-            print("Upgrade to send long requests.")
+# Stretch task: Check whether the user has a paid plan.
+is_paid_user = input("Are you a paid user? (yes/no): ").strip().lower()
 
-        print("\n" + "=" * 40)
-        print("--- Smart Model Router ---")
-        print(f"Task: {task}")
-        print(f"Tokens: {tokens:,}")
-        print(f"Chosen model: {model}")
-        print(f"Estimated cost: {cost:.2f} PKR")
-        print(f"Warning: {warning}")
-        print("=" * 40)
-
-except ValueError:
-    print("Invalid input! Please enter tokens as a whole number.")
+if is_paid_user == "no" and tokens > 2000:
+    print("Upgrade to send long requests.")
