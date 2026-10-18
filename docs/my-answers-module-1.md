@@ -101,3 +101,46 @@ Q3:  print(f"Price: {price} PKR")
 Q4:  max_tokens = 150  # short limit so replies fit on a phone screen
 Q5:  ValueError
 Q6:  201
+
+
+## Module 1, Checkpoint 2: Quick Checks (Lessons 1.5 to 1.8)
+
+### Lesson 1.5: Variables and Data Types
+
+1.5: 
+Q1: `float`, 
+Q2: `7`, 
+Q3: `user_name_2`, 
+Q4: `True`, 
+Q5: `input()` returns text, and text cannot be added directly to a number, 
+Q6: `10.0`
+
+### Lesson 1.6: Working with Text (Strings)
+
+1.6: 
+Q1: `"Sweet"`, 
+Q2: `"r"`, 
+Q3: `.strip().title()`, 
+Q4: `lahore`, 
+Q5: `"sugar-free" in message.lower()`, 
+Q6: `98765.4 PKR for 2,500,000 chats`
+
+### Lesson 1.7: Operators and Making Decisions
+
+1.7: 
+Q1: `5`, 
+Q2: `3`, 
+Q3: `if plan != "free":`, 
+Q4: The condition is `True` because `"Karachi"` on its own is a non-empty string, 
+Q5: `Medium`, 
+Q6: `Upgrade`
+
+### Lesson 1.8: Mini Project: Rule-Based Chatbot
+
+1.8: 
+Q1: The bot says goodbye, then asks for the next message again because `break` was removed, 
+Q2: The message was not cleaned with `.strip().lower()`, 
+Q3: The fallback answers because no rule matches, 
+Q4: The price reply prints; move the refund rule before the price rule, 
+Q5: Initialize `count = 0` once before the loop, 
+Q6: `3 messages, 1 unanswered`
