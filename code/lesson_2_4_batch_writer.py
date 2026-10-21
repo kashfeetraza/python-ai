@@ -72,6 +72,7 @@ for name, price in products.items():
         print(f"Failed to process {name}: {error}")
 
 # Print all successful results
+# Why: the summary lets the business compare the batch's token usage and duration.
 print("=" * 50)
 print("SWEET CRUMBS - BAKERY MENU")
 print("=" * 50)
