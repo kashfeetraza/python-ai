@@ -1,0 +1,34 @@
+[
+  {
+    "role": "user",
+    "content": "ali"
+  },
+  {
+    "role": "assistant",
+    "content": "I am the assistant of Sweet Crumbs in Lahore. \n\nWhat would you like to know about Sweet Crumbs?"
+  },
+  {
+    "role": "user",
+    "content": "price"
+  },
+  {
+    "role": "assistant",
+    "content": "The price of a chocolate cake at Sweet Crumbs is 1500 PKR, a cupcake is 250 PKR, and a brownie is 300 PKR."
+  },
+  {
+    "role": "user",
+    "content": "hours"
+  },
+  {
+    "role": "assistant",
+    "content": "Sweet Crumbs is open from 9 am to 10 pm."
+  },
+  {
+    "role": "user",
+    "content": "delivery"
+  },
+  {
+    "role": "assistant",
+    "content": "Sweet Crumbs offers free delivery over 3,000 PKR."
+  }
+]
