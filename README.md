@@ -219,3 +219,41 @@ The bot can save staff time by answering repeat questions and calculating consis
 - [ ] Save a full-session screenshot as `docs/project-m1-part2-run.png`.
 - [ ] Practise explaining the code in your own words.
 - [ ] Commit with: `Module 1 Checkpoint 2 Project: AI Front Desk`
+
+
+
+# AI Quality Test Results
+
+Run the application and record the actual responses.
+
+## Test 1 — Business hours
+
+**Question:** What are your opening hours?
+
+**AI answer:** Replace with the actual answer.
+
+**Judgement:** Correct or hallucinated? Explain briefly.
+
+## Test 2 — Price
+
+**Question:** How much does a cupcake cost?
+
+**AI answer:** Replace with the actual answer.
+
+**Judgement:** Correct or hallucinated? Explain briefly.
+
+## Test 3 — Unknown product
+
+**Question:** Do you sell pizza?
+
+**AI answer:** Replace with the actual answer.
+
+**Judgement:** Correct or hallucinated? Explain briefly.
+
+## Best social media post
+
+**Tone:** Replace with your chosen tone.
+
+**Actual post:** Paste the post produced by your application.
+
+**Why this tone works best:** Explain why it suits Sweet Crumbs.
