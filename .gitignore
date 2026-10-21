@@ -12,3 +12,4 @@ __pycache__/
 *.py[cod]
 .env
 .vscode/
+code/orders.json
