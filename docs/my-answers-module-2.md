@@ -16,3 +16,13 @@
 
 2.4: Q1 b, Q2 b, Q3 b, Q4 b, Q5 b, Q6
 
+
+
+
+2.5: Q1 c, Q2 b, Q3 b, Q4 b, Q5 b, Q6 Total: 1100.0; None
+
+2.6: Q1 c, Q2 b, Q3 b, Q4 b, Q5 b, Q6 Skipped abc; 550
+
+2.7: Q1 b, Q2 b, Q3 b, Q4 b, Q5 b, Q6 CHECK: pizza is not on the menu; 500 (missing)
+
+2.8: Q1 b, Q2 b, Q3 b, Q4 b, Q5 c, Q6 step 0: tool; step 1: tool; step 2: tool; Gave up: a human will help
