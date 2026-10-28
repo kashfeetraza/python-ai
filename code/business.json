@@ -1,17 +1,24 @@
-
 {
   "name": "Sweet Crumbs",
-  "type": "Bakery",
   "city": "Lahore",
   "hours": "9 AM to 10 PM, every day",
-  "delivery": "Free delivery on orders over 3000 PKR",
+  "delivery": "Free delivery over 3000 PKR",
   "currency": "PKR",
+  "order_prefix": "A",
+  "next_order_number": 108,
   "prices": {
     "chocolate cake": 1500,
     "cupcake": 250,
     "brownie": 300,
     "donut": 200
   },
-  "order_prefix": "A",
-  "next_order_number": 101
+  "orders": {
+    "A101": "received",
+    "A102": "received",
+    "A103": "received",
+    "A104": "received",
+    "A105": "received",
+    "A106": "received",
+    "A107": "received"
+  }
 }

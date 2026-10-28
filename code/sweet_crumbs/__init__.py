@@ -1,0 +1,1 @@
+"""Sweet Crumbs AI agent package: configuration, data, tools and agent loop."""

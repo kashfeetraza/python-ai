@@ -257,3 +257,42 @@ Run the application and record the actual responses.
 **Actual post:** Paste the post produced by your application.
 
 **Why this tone works best:** Explain why it suits Sweet Crumbs.
+
+
+# Lesson 3.1 — Organised Sweet Crumbs Agent
+
+## Important: preserve your current data
+This bundle intentionally does **not** include a live `business.json`. Keep your existing `business.json` in this folder so your existing orders are not overwritten. If it lacks `hours`, `delivery`, `order_prefix`, or `next_order_number`, add those fields carefully while preserving its current `prices` and `orders`. `business.json.example` is only a template.
+
+## Install dependencies
+Run these commands from your existing `code` folder (the folder containing `pyproject.toml`):
+
+```powershell
+uv add python-dotenv langchain langchain-ollama
+```
+
+If these dependencies are already installed, this simply ensures they're declared in the project.
+
+## Set up secrets/settings
+Copy `.env.example` to `.env` and keep `.env` untracked:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Default model setting uses the local Ollama model `llama3.2:latest`. Make sure it is available using `ollama list`.
+
+## Run from the code folder
+```powershell
+uv run lesson_3_1_agent.py
+```
+
+Other lesson checks:
+```powershell
+uv run sweet_crumbs/pricing.py
+uv run lesson_3_1_imports.py
+uv run lesson_3_1_env.py
+git status
+```
+
+Check that `.env` is not shown by `git status`, but `.env.example` is allowed to be committed.
