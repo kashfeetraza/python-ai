@@ -1,0 +1,49 @@
+[
+  {
+    "customer": "",
+    "items": [
+      {
+        "name": "cupcake",
+        "quantity": 2
+      },
+      {
+        "name": "chocolate cake",
+        "quantity": 1
+      }
+    ],
+    "address": "",
+    "total": 2000,
+    "needs_human_review": true,
+    "source_message": "Salam! 2 cupcakes aur 1 chocolate cake chahiye. Ali, house 12 Gulberg"
+  },
+  {
+    "customer": "",
+    "items": [
+      {
+        "name": "pizza",
+        "quantity": 1
+      },
+      {
+        "name": "brownie",
+        "quantity": 2
+      }
+    ],
+    "address": "",
+    "total": 600,
+    "needs_human_review": true,
+    "source_message": "1 pizza and 2 brownies please, Model Town"
+  },
+  {
+    "customer": "",
+    "items": [
+      {
+        "name": "brownie",
+        "quantity": 2
+      }
+    ],
+    "address": "",
+    "total": 600,
+    "needs_human_review": true,
+    "source_message": "2 brownies please. Sara, Johar Town"
+  }
+]
