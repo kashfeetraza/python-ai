@@ -1,7 +1,7 @@
 """Agent tools for menu prices, order status and owner-approved orders."""
 
 from langchain.tools import tool
-
+from sweet_crumbs.live_tools import convert_currency, get_weather
 from sweet_crumbs.data import ORDERS, PRICES, business, save
 
 
@@ -85,3 +85,8 @@ TOOLS = {
     "order_status": order_status,
     "place_order": place_order,
 }
+
+TOOLS.update({
+    "convert_currency": convert_currency,
+    "get_weather": get_weather,
+})

@@ -19,3 +19,20 @@ if PROVIDER == "anthropic" and not ANTHROPIC_API_KEY:
     raise SystemExit(
         "PROVIDER is anthropic but ANTHROPIC_API_KEY is empty. Add it to .env."
     )
+
+
+# Lesson 3.3: External API settings
+RATES_URL = os.getenv(
+    "RATES_URL",
+    "https://open.er-api.com/v6/latest",
+)
+GEOCODE_URL = os.getenv(
+    "GEOCODE_URL",
+    "https://geocoding-api.open-meteo.com/v1/search",
+)
+WEATHER_URL = os.getenv(
+    "WEATHER_URL",
+    "https://api.open-meteo.com/v1/forecast",
+)
+HTTP_TIMEOUT = float(os.getenv("HTTP_TIMEOUT", "10"))
+CACHE_SECONDS = int(os.getenv("CACHE_SECONDS", "3600"))
